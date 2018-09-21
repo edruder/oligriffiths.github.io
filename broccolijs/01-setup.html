@@ -12,12 +12,16 @@
 <meta property="og:site_name" content="Oli Griffiths">
 <meta property="og:description" content="First things first, it is assumed that you know how to use a terminal on your machine, if you&amp;#39;re unfamiliar with the terminal, best get familiar with that first. You&amp;#39;re also going to want to u">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/vscode-debug.png">
+<meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/intellij-debug.png">
+<meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/vscode-debug-controls.png">
+<meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/intellij-debug-controls.png">
 <meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/01-setup.png">
-<meta property="og:updated_time" content="2018-04-29T20:36:39.790Z">
+<meta property="og:updated_time" content="2018-09-20T22:59:59.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="01-Setup">
 <meta name="twitter:description" content="First things first, it is assumed that you know how to use a terminal on your machine, if you&amp;#39;re unfamiliar with the terminal, best get familiar with that first. You&amp;#39;re also going to want to u">
-<meta name="twitter:image" content="http://www.oligriffiths.com/broccolijs/assets/01-setup.png">
+<meta name="twitter:image" content="http://www.oligriffiths.com/broccolijs/assets/vscode-debug.png">
   
     <link rel="alternative" href="/atom.xml" title="Oli Griffiths" type="application/atom+xml">
   
@@ -75,7 +79,7 @@
             <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/broccolijs/01-setup.html" class="article-date">
-  <time datetime="2018-04-26T23:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
+  <time datetime="2018-04-27T05:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
 </a>
     
   </div>
@@ -98,24 +102,33 @@
 terminal, best get familiar with that first.</p>
 <p>You&#39;re also going to want to use Node 8 as this is the current LTS (long term support) version.</p>
 <p>We&#39;re going to use <a href="https://yarnpkg.com" target="_blank" rel="noopener">yarn</a> instead of <code>npm</code> to ensure our dependencies are in lock step.</p>
-<p>Now install the broccoli-cli tool globally:</p>
-<p><code>yarn global add broccoli-cli</code></p>
-<p>The <code>broccoli</code> command should now be available in your terminal. This CLI tool just checks some basic dependencies in
-the current project before running the main broccoli library. So lets do that next.</p>
 <p>Create a new directory for this tutorial and install broccoli:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir broccoli-tutorial</span><br><span class="line"><span class="built_in">cd</span> broccoli-tutorial</span><br><span class="line">yarn add --dev broccoli@^1.1.4</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir broccoli-tutorial</span><br><span class="line"><span class="built_in">cd</span> broccoli-tutorial</span><br><span class="line">yarn add --dev broccoli@beta broccoli-cli</span><br></pre></td></tr></table></figure>
+<p>The above command will add broccoli and broccoli-cli as dev dependencies of your project. The CLI tool can also be
+installed globally if you wish, it just checks some basic dependencies in the current project before running the main
+broccoli library.</p>
 <p>In your <code>package.json</code> add the following to the <code>scripts</code> node (add this if it&#39;s not present):</p>
-<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">        <span class="attr">"clean"</span>: <span class="string">"rm -rf dist"</span>,</span><br><span class="line">        <span class="attr">"build"</span>: <span class="string">"yarn clean &amp;&amp; broccoli build dist"</span>,</span><br><span class="line">        <span class="attr">"serve"</span>: <span class="string">"broccoli serve"</span>,</span><br><span class="line">        <span class="attr">"debug-build"</span>: <span class="string">"yarn clean &amp;&amp; node $NODE_DEBUG_OPTION $(which broccoli) build dist"</span>,</span><br><span class="line">        <span class="attr">"debug-serve"</span>: <span class="string">"node $NODE_DEBUG_OPTION $(which broccoli) serve"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"broccoli build --overwrite"</span>,</span><br><span class="line">    <span class="attr">"serve"</span>: <span class="string">"broccoli serve"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>You can now use <code>yarn build</code> and <code>yarn serve</code> for convenience.</p>
-<p>Note: the <code>debug-build</code> and <code>debug-serve</code> are for use with <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> to allow for
-interactive debugging. If you wish to use this, you&#39;ll need the files in
-<a href="https://github.com/oligriffiths/broccolijs-tutorial/tree/00-init/.vscode" target="_blank" rel="noopener">this directory</a>.
-You can add breakpoints by clicking in the column to the left of the line numbers (on the left) and then hit the
-<code>debug</code> icon on the very left side of the screen (looks like a bug) or CMD + SHIFT + D, select <code>debug-build</code> from the
-dropdown menu at the top, and click &quot;play&quot;.</p>
-<p>Note: the <code>clean</code> task is used to remove the <code>dist</code> directory before the build, or broccoli complains that the directory
-already exists.</p>
-<h3 id="Brocfile-js"><a href="#Brocfile-js" class="headerlink" title="Brocfile.js"></a>Brocfile.js</h3><p>A <code>Brocfile.js</code> must live in the root of your project, this is what will contain your build pipeline.</p>
+<h3 id="Debugging"><a href="#Debugging" class="headerlink" title="Debugging"></a>Debugging</h3><p>If you use <a href="https://code.visualstudio.com/" target="_blank" rel="noopener">VS Code</a> or an Intellij product from <a href="https://www.jetbrains.com/" target="_blank" rel="noopener">Jetbrains</a>
+you can enable interactive debugging via a few simple steps. First, replace the scripts above with the following:</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">"scripts"</span>: &#123;</span><br><span class="line">    <span class="attr">"build"</span>: <span class="string">"node $NODE_DEBUG_OPTION $(which broccoli) build --overwrite"</span>,</span><br><span class="line">    <span class="attr">"serve"</span>: <span class="string">"node $NODE_DEBUG_OPTION $(which broccoli) serve"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="VSCode"><a href="#VSCode" class="headerlink" title="VSCode"></a>VSCode</h4><p>After this, you&#39;ll need the files in <a href="https://github.com/oligriffiths/broccolijs-tutorial/tree/00-init/.vscode" target="_blank" rel="noopener">this directory</a>.</p>
+<p>Once you have those in your project, you&#39;ll see the <code>Build - Debug</code> and <code>Serve - Debug</code> in your debug tab, see
+<a href="https://code.visualstudio.com/docs/editor/debugging" target="_blank" rel="noopener">the VSCode docs</a> for more details on debugging.</p>
+<p><img src="/broccolijs/assets/vscode-debug.png" alt="VSCode debug window"></p>
+<h4 id="Intellij"><a href="#Intellij" class="headerlink" title="Intellij"></a>Intellij</h4><p>Select <code>Run &gt; Edit Configurations</code> from the menu bar, click the <code>+</code> in the top right hand corner, and select <code>npm</code>.
+Name the configuration <code>Build</code>, ensure <code>run</code> is selected in the <code>command</code> entry, and select <code>build</code> from the <code>scripts</code>
+dropdown, and hit apply. Repeat for the <code>serve</code> script.</p>
+<p><img src="/broccolijs/assets/intellij-debug.png" alt="intellij debug window"></p>
+<p>You can now add breakpoints by clicking in the column to the left of the line numbers (on the left) and then proceed to
+invoke a debugging session:</p>
+<p>VSCode:
+<img src="/broccolijs/assets/vscode-debug-controls.png" alt="VSCode debug controls"></p>
+<p>Intellij:
+<img src="/broccolijs/assets/intellij-debug-controls.png" alt="intellij debug controls">Screenshot 2018-09-20 18.57.10</p>
+<h2 id="The-build-file"><a href="#The-build-file" class="headerlink" title="The build file"></a>The build file</h2><p>Broccoli uses a file called <code>Brocfile.js</code> that must live in the root of your project, this is what will contain your
+build pipeline.</p>
 <p>So create a <code>Brocfile.js</code> in the root of your project, with the contents: </p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Brocfile.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">"app"</span>;</span><br></pre></td></tr></table></figure>
 <p>Next, create a directory <code>app</code> within the project, and add a <code>index.html</code> file with the contents <code>Eat your greens!</code>.</p>
@@ -152,7 +165,7 @@ Broccoli doesn&#39;t remove previous builds by default, so we must remove it bef
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/broccolijs/01-setup.html" data-id="cjjri7ook0003mls9jiys7ijm" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/broccolijs/01-setup.html" data-id="cjkb15fgk001hbnm9xpfvwlt9" class="article-share-link">Share</a>
       
         <a href="http://www.oligriffiths.com/broccolijs/01-setup.html#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -229,11 +242,11 @@ Broccoli doesn&#39;t remove previous builds by default, so we must remove it bef
           </li>
         
           <li>
-            <a href="/2018/04/27/eat-your-greens-broccolijs-tutorial/">Eat Your Greens - A Broccoli.js Tutorial</a>
+            <a href="/2018/04/26/eat-your-greens-broccolijs-tutorial/">Eat Your Greens - A Broccoli.js Tutorial</a>
           </li>
         
           <li>
-            <a href="/2018/03/07/ember-map-interview/">EmberMap Interview on Ember, Broccoli, static analysis and mroe</a>
+            <a href="/2018/03/06/ember-map-interview/">EmberMap Interview on Ember, Broccoli, static analysis and mroe</a>
           </li>
         
           <li>
@@ -241,7 +254,7 @@ Broccoli doesn&#39;t remove previous builds by default, so we must remove it bef
           </li>
         
           <li>
-            <a href="/2015/06/30/namespacing-in-PHP-and-how-we-broke-it/">Namespacing in PHP and how we broke it</a>
+            <a href="/2015/06/29/namespacing-in-PHP-and-how-we-broke-it/">Namespacing in PHP and how we broke it</a>
           </li>
         
       </ul>
