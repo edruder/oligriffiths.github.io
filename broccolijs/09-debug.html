@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Oli Griffiths">
 <meta property="og:description" content="Because Broccoli handles managing the state of the file system between transformations, it can sometimes be tricky to debug at what stage a transformation went wrong. Luckily, there is a handy and hil">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-21T00:42:53.091Z">
+<meta property="og:updated_time" content="2018-09-21T21:16:47.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="09-Debugging">
 <meta name="twitter:description" content="Because Broccoli handles managing the state of the file system between transformations, it can sometimes be tricky to debug at what stage a transformation went wrong. Luckily, there is a handy and hil">
@@ -107,11 +107,7 @@ log methods to various stages of your pipeline, and each print the filename it c
 <h2 id="Debug"><a href="#Debug" class="headerlink" title="Debug"></a>Debug</h2><p>Much like the <code>log</code> utility, the <code>debug</code> utility allows you to inspect the state of the file system, but instead of
 printing the state to the console, it writes it to disk.</p>
 <p>To use the debug utility:</p>
-<p><code>`</code>js`
-const debug = require(&#39;broccoli-stew&#39;).debug;</p>
-<p>// Write tree to disk
-tree = debug(tree, &#39;my-tree&#39;);
-<code></code></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> debug = <span class="built_in">require</span>(<span class="string">'broccoli-stew'</span>).debug;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Write tree to disk</span></span><br><span class="line">tree = debug(tree, <span class="string">'my-tree'</span>);</span><br></pre></td></tr></table></figure>
 <p>When running <code>yarn build</code>, you will now see a folder in the root of the project called <code>DEBUG</code> that contains a folder
 called <code>my-tree</code> with the contents of <code>tree</code> that whatever stage of the build it was added.</p>
 <p>This is useful when you want to see the contents of files as they go through the various transformations, as opposed
@@ -130,7 +126,7 @@ to just logging the file names.</p>
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/broccolijs/09-debug.html" data-id="cjkb15fgq001pbnm9446c7bhv" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/broccolijs/09-debug.html" data-id="cjmcia8jz000q4pm9bp24c9zm" class="article-share-link">Share</a>
       
         <a href="http://www.oligriffiths.com/broccolijs/09-debug.html#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -207,11 +203,11 @@ to just logging the file names.</p>
           </li>
         
           <li>
-            <a href="/2018/04/26/eat-your-greens-broccolijs-tutorial/">Eat Your Greens - A Broccoli.js Tutorial</a>
+            <a href="/2018/04/27/eat-your-greens-broccolijs-tutorial/">Eat Your Greens - A Broccoli.js Tutorial</a>
           </li>
         
           <li>
-            <a href="/2018/03/06/ember-map-interview/">EmberMap Interview on Ember, Broccoli, static analysis and mroe</a>
+            <a href="/2018/03/07/ember-map-interview/">EmberMap Interview on Ember, Broccoli, static analysis and mroe</a>
           </li>
         
           <li>
@@ -219,7 +215,7 @@ to just logging the file names.</p>
           </li>
         
           <li>
-            <a href="/2015/06/29/namespacing-in-PHP-and-how-we-broke-it/">Namespacing in PHP and how we broke it</a>
+            <a href="/2015/06/30/namespacing-in-PHP-and-how-we-broke-it/">Namespacing in PHP and how we broke it</a>
           </li>
         
       </ul>
