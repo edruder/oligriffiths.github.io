@@ -17,7 +17,7 @@
 <meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/vscode-debug-controls.png">
 <meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/intellij-debug-controls.png">
 <meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/01-setup.png">
-<meta property="og:updated_time" content="2018-09-20T22:59:59.652Z">
+<meta property="og:updated_time" content="2018-10-04T00:15:46.344Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="01-Setup">
 <meta name="twitter:description" content="First things first, it is assumed that you know how to use a terminal on your machine, if you&amp;#39;re unfamiliar with the terminal, best get familiar with that first. You&amp;#39;re also going to want to u">
@@ -79,7 +79,7 @@
             <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/broccolijs/01-setup.html" class="article-date">
-  <time datetime="2018-04-27T05:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
+  <time datetime="2018-04-27T04:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
 </a>
     
   </div>
@@ -103,7 +103,7 @@ terminal, best get familiar with that first.</p>
 <p>You&#39;re also going to want to use Node 8 as this is the current LTS (long term support) version.</p>
 <p>We&#39;re going to use <a href="https://yarnpkg.com" target="_blank" rel="noopener">yarn</a> instead of <code>npm</code> to ensure our dependencies are in lock step.</p>
 <p>Create a new directory for this tutorial and install broccoli:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir broccoli-tutorial</span><br><span class="line"><span class="built_in">cd</span> broccoli-tutorial</span><br><span class="line">yarn add --dev broccoli@beta broccoli-cli</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir broccoli-tutorial</span><br><span class="line"><span class="built_in">cd</span> broccoli-tutorial</span><br><span class="line">yarn init -y</span><br><span class="line">yarn add --dev broccoli@beta broccoli-cli</span><br></pre></td></tr></table></figure>
 <p>The above command will add broccoli and broccoli-cli as dev dependencies of your project. The CLI tool can also be
 installed globally if you wish, it just checks some basic dependencies in the current project before running the main
 broccoli library.</p>
@@ -141,13 +141,13 @@ validate that the directory exists. In this case, the Brocfile merely exports a 
 the <code>app</code> directory, this will then be copied to the destination directory (<code>dist</code> in our case).</p>
 <p>To run a build, run <code>yarn build</code> (if you added the script) or <code>rm -rf dist &amp;&amp; broccoli build dist</code>.
 You should see something like:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yarn clean &amp;&amp; broccoli build dist</span><br><span class="line">$ rm -rf dist</span><br><span class="line">✨  Done <span class="keyword">in</span> 1.05s.</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ yarn build</span><br><span class="line">$ rm -rf dist</span><br><span class="line">✨  Done <span class="keyword">in</span> 1.05s.</span><br></pre></td></tr></table></figure>
 <p>This yarn command will remove any previous builds, and run a new build, outputting to the <code>dist</code> directory.
 Broccoli doesn&#39;t remove previous builds by default, so we must remove it before starting a new build.</p>
 <p>The contents of <code>app</code> should now be in the <code>dist</code> directory. Try:</p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ cat dist/index.html</span><br><span class="line">Eat your greens!</span><br></pre></td></tr></table></figure>
 <p>Now try running <code>yarn serve</code> or <code>broccoli serve</code> and you should see:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ broccoli serve</span><br><span class="line">Serving on http://localhost:4200</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Built - 0 ms @ Wed Mar 28 2018 11:25:30 GMT-0400 (EDT)</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$ yarn serve</span><br><span class="line">Serving on http://localhost:4200</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Built - 0 ms @ Wed Mar 28 2018 11:25:30 GMT-0400 (EDT)</span><br></pre></td></tr></table></figure>
 <p>You will see the URL <code>http://localhost:4200</code>, if you open this in the browser, you should see:</p>
 <p><img src="assets/01-setup.png" alt="browser"></p>
 <p>Great, your first Broccoli build is complete, pat yourself on the back 👏.</p>
@@ -165,7 +165,7 @@ Broccoli doesn&#39;t remove previous builds by default, so we must remove it bef
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/broccolijs/01-setup.html" data-id="cjmcia8jq000d4pm9zjmwag8w" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/broccolijs/01-setup.html" data-id="cjmtu7r350003bem9pwo1pjin" class="article-share-link">Share</a>
       
         <a href="http://www.oligriffiths.com/broccolijs/01-setup.html#disqus_thread" class="article-comment-link">Comments</a>
       

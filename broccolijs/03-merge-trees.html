@@ -13,7 +13,7 @@
 <meta property="og:description" content="The first examples are fairly contrived and not that useful. We&amp;#39;ll want to be able to work with multiple trees, and ultimately have them written to our target directory. Introducing, broccoli-merg">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://www.oligriffiths.com/broccolijs/assets/broccoli-logo.png">
-<meta property="og:updated_time" content="2018-09-20T23:12:05.481Z">
+<meta property="og:updated_time" content="2018-10-04T01:16:51.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="03-Merge Trees">
 <meta name="twitter:description" content="The first examples are fairly contrived and not that useful. We&amp;#39;ll want to be able to work with multiple trees, and ultimately have them written to our target directory. Introducing, broccoli-merg">
@@ -75,7 +75,7 @@
             <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/broccolijs/03-merge-trees.html" class="article-date">
-  <time datetime="2018-04-27T05:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
+  <time datetime="2018-04-27T04:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
 </a>
     
   </div>
@@ -98,10 +98,8 @@
 and ultimately have them written to our target directory.</p>
 <p>Introducing, <a href="https://github.com/broccolijs/broccoli-merge-trees" target="_blank" rel="noopener">broccoli-merge-trees</a></p>
 <figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add --dev broccoli-merge-trees@^3.0.0</span><br></pre></td></tr></table></figure>
-<p>Now let&#39;s add a <code>public</code> directory so we can ship unprocessed assets like images:</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p public/images</span><br></pre></td></tr></table></figure>
-<p>Now let&#39;s add a JS and a CSS file that&#39;ll be the root of our web app and copy that into an <code>assets</code> folder.</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p app/styles</span><br></pre></td></tr></table></figure>
+<p>Now let&#39;s add a some directories and content so we can ship unprocessed assets like images, css and js:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p public/images</span><br><span class="line">mkdir -p app/styles</span><br><span class="line">touch app/styles/app.css app/app.js</span><br></pre></td></tr></table></figure>
 <p>In <code>app/styles/app.css</code> put:</p>
 <figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">  <span class="attribute">background</span>: palegreen;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>In <code>app/app.js</code> put:</p>
@@ -134,7 +132,7 @@ green background.</p>
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/broccolijs/03-merge-trees.html" data-id="cjmcia8jo000b4pm9ehig93xk" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/broccolijs/03-merge-trees.html" data-id="cjmtu7r3b0008bem91onnvqfc" class="article-share-link">Share</a>
       
         <a href="http://www.oligriffiths.com/broccolijs/03-merge-trees.html#disqus_thread" class="article-comment-link">Comments</a>
       

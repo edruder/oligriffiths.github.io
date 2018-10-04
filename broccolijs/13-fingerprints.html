@@ -12,7 +12,7 @@
 <meta property="og:site_name" content="Oli Griffiths">
 <meta property="og:description" content="When deploying updates to your new shiny app, you&amp;#39;re going to want the browser to fetch the latest version if there has been an update, rather than using the cached version the browser may store.">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2018-09-21T01:30:33.600Z">
+<meta property="og:updated_time" content="2018-10-04T04:23:29.233Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="13-Fingerprinting">
 <meta name="twitter:description" content="When deploying updates to your new shiny app, you&amp;#39;re going to want the browser to fetch the latest version if there has been an update, rather than using the cached version the browser may store.">
@@ -73,7 +73,7 @@
             <section id="main"><article id="page-undefined" class="article article-type-page" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/broccolijs/13-fingerprints.html" class="article-date">
-  <time datetime="2018-04-27T05:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
+  <time datetime="2018-04-27T04:00:00.000Z" itemprop="datePublished">Apr 27 2018</time>
 </a>
     
   </div>
@@ -104,6 +104,8 @@ invalidating the previous cached versions.</p>
 auto-hash <code>js</code>, <code>css</code>, <code>png</code>, <code>jpg</code>, <code>gif</code> and <code>map</code> files, and will update <code>html</code>, <code>css</code> and <code>js</code> files with any
 references to the original un-hashed file, with the new hashed file. There are additional options to specify a prefix
 so that files can be hosted on a CDN if you wish, see the plugin github page.</p>
+<p>Run <code>yarn build-prod</code> and checkout the <code>dist</code> directory:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">└── assets/</span><br><span class="line">   ├── assets/app-4e1b4144662735eb546985bf69c03889.js</span><br><span class="line">   └── assets/app-75fd3e0f1a1ab573158459ad50aa232f.css</span><br><span class="line">└── images/</span><br><span class="line">   ├── images/broccoli-logo-4b34a6c5a21fbbd16639b21ec2e78902.png</span><br><span class="line">└── index.html</span><br></pre></td></tr></table></figure>
 <p>Completed Branch: <a href="https://github.com/oligriffiths/broccolijs-tutorial/tree/13-fingerprints" target="_blank" rel="noopener">13-fingerprints</a></p>
 <p>Next: <a href="14-complete.html">14-complete</a></p>
 
@@ -118,7 +120,7 @@ so that files can be hosted on a CDN if you wish, see the plugin github page.</p
     </footer>
     
     <footer class="article-footer">
-      <a data-url="http://www.oligriffiths.com/broccolijs/13-fingerprints.html" data-id="cjmcia8k1000s4pm9slfuwub6" class="article-share-link">Share</a>
+      <a data-url="http://www.oligriffiths.com/broccolijs/13-fingerprints.html" data-id="cjmtu7r3u000vbem9azt90y5j" class="article-share-link">Share</a>
       
         <a href="http://www.oligriffiths.com/broccolijs/13-fingerprints.html#disqus_thread" class="article-comment-link">Comments</a>
       
